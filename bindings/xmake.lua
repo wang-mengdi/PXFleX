@@ -3,15 +3,19 @@ add_requires("libsdl =2.0.8")
 add_requires("pybind11 >=2.10.0")
 --includes("../extensions/xmake.lua")
 
-target("pyflex-binding")
+target("pyflex")
     add_rules("plugin.vsxmake.autoupdate")
+    add_rules("python.library",{soabi = true})
+
     if is_plat("windows") then
         add_defines("WIN64")
     else
         add_defines("PLATFORM_LINUX")
     end
 
-    set_kind("shared")
+    add_packages("libsdl",{public=true})
+    add_packages("pybind11",{public=true})
+
     add_includedirs(".",{public=true})
     add_headerfiles("(./*.h)")
     add_includedirs("scenes",{public=true})
@@ -49,6 +53,4 @@ target("pyflex-binding")
     add_cuflags("-extended-lambda","-rdc=true")
     add_cuflags("-Xcompiler /bigobj")
     --add_ldflags("/subsystem:console")
-    add_packages("libsdl",{public=true})
-    add_packages("pybind11",{public=true})
     
