@@ -17,3 +17,6 @@ bindings/examples/*.gif
 bin/.vs/
 bindings/.xmake
 build
+bin/.build_cache
+bin/.deps
+bin/.objs
