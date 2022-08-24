@@ -253,6 +253,7 @@ namespace OGL_Renderer
 char font_path[100];
 
 char* make_path(char* full_path, std::string path) {
+	printf("pyflexroot: %s\n", getenv("PYFLEXROOT"));
     strcpy(full_path, getenv("PYFLEXROOT"));
     strcat(full_path, path.c_str());
     return full_path;

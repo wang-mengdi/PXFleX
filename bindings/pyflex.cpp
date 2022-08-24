@@ -2775,13 +2775,6 @@ void pyflex_clean() {
     SDL_Quit();
 }
 
-int main() {
-    pyflex_init();
-    pyflex_clean();
-
-    return 0;
-}
-
 void SDL_EventFunc() {
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
@@ -3446,6 +3439,17 @@ void pyflex_render(int capture, char *path) {
     }
 }
 
+int main(void) {
+    pyflex_init();
+    auto empty_array = py::array_t<float>(0);
+    pyflex_set_scene(1, empty_array, 0);
+    for (int i = 0; i < 150; i++) {
+        pyflex_step(empty_array, 1, "test_BoxBath");
+    }
+    pyflex_clean();
+
+    return 0;
+}
 
 //int add(int i, int j) {
 //    return i + j;
@@ -3457,47 +3461,47 @@ void pyflex_render(int capture, char *path) {
 //    m.def("add", &add, "A function which adds two numbers");
 //}
 
-PYBIND11_MODULE(pyflex, m) {
-    m.def("main", &main);
-
-    m.def("init", &pyflex_init);
-    m.def("set_scene", &pyflex_set_scene);
-    m.def("clean", &pyflex_clean);
-    m.def("step", &pyflex_step,
-          py::arg("update_params") = nullptr,
-          py::arg("capture") = 0,
-          py::arg("path") = nullptr);
-    m.def("render", &pyflex_render,
-          py::arg("capture") = 0,
-          py::arg("path") = nullptr);
-
-    m.def("add_box", &pyflex_add_box, "Add box to the scene");
-
-    m.def("get_n_particles", &pyflex_get_n_particles, "Get the number of particles");
-    m.def("get_n_shapes", &pyflex_get_n_shapes, "Get the number of shapes");
-    m.def("get_n_rigids", &pyflex_get_n_rigids, "Get the number of rigids");
-    m.def("get_n_rigidPositions", &pyflex_get_n_rigidPositions, "Get the number of rigid positions");
-
-    m.def("get_positions", &pyflex_get_positions, "Get particle positions");
-    m.def("set_positions", &pyflex_set_positions, "Set particle positions");
-    m.def("get_restPositions", &pyflex_get_restPositions, "Get particle restPositions");
-    m.def("get_rigidOffsets", &pyflex_get_rigidOffsets, "Get rigid offsets");
-    m.def("get_rigidIndices", &pyflex_get_rigidIndices, "Get rigid indices");
-    m.def("get_rigidLocalPositions", &pyflex_get_rigidLocalPositions, "Get rigid local positions");
-    m.def("get_rigidGlobalPositions", &pyflex_get_rigidGlobalPositions, "Get rigid global positions");
-    m.def("get_rigidRotations", &pyflex_get_rigidRotations, "Get rigid rotations");
-    m.def("get_rigidTranslations", &pyflex_get_rigidTranslations, "Get rigid translations");
-
-    m.def("get_sceneParams", &pyflex_get_sceneParams, "Get scene parameters");
-
-    m.def("get_velocities", &pyflex_get_velocities, "Get particle velocities");
-    m.def("set_velocities", &pyflex_set_velocities, "Set particle velocities");
-    m.def("get_phases", &pyflex_get_phases, "Get particle phases");
-
-    m.def("get_shape_states", &pyflex_get_shape_states, "Get shape states");
-    m.def("set_shape_states", &pyflex_set_shape_states, "Set shape states");
-    m.def("clear_shapes", &ClearShapes, "Clear shapes");
-
-    m.def("get_scene_upper", &pyflex_get_sceneUpper);
-    m.def("get_scene_lower", &pyflex_get_sceneLower);
-}
+//PYBIND11_MODULE(pyflex, m) {
+//    m.def("main", &main);
+//
+//    m.def("init", &pyflex_init);
+//    m.def("set_scene", &pyflex_set_scene);
+//    m.def("clean", &pyflex_clean);
+//    m.def("step", &pyflex_step,
+//          py::arg("update_params") = nullptr,
+//          py::arg("capture") = 0,
+//          py::arg("path") = nullptr);
+//    m.def("render", &pyflex_render,
+//          py::arg("capture") = 0,
+//          py::arg("path") = nullptr);
+//
+//    m.def("add_box", &pyflex_add_box, "Add box to the scene");
+//
+//    m.def("get_n_particles", &pyflex_get_n_particles, "Get the number of particles");
+//    m.def("get_n_shapes", &pyflex_get_n_shapes, "Get the number of shapes");
+//    m.def("get_n_rigids", &pyflex_get_n_rigids, "Get the number of rigids");
+//    m.def("get_n_rigidPositions", &pyflex_get_n_rigidPositions, "Get the number of rigid positions");
+//
+//    m.def("get_positions", &pyflex_get_positions, "Get particle positions");
+//    m.def("set_positions", &pyflex_set_positions, "Set particle positions");
+//    m.def("get_restPositions", &pyflex_get_restPositions, "Get particle restPositions");
+//    m.def("get_rigidOffsets", &pyflex_get_rigidOffsets, "Get rigid offsets");
+//    m.def("get_rigidIndices", &pyflex_get_rigidIndices, "Get rigid indices");
+//    m.def("get_rigidLocalPositions", &pyflex_get_rigidLocalPositions, "Get rigid local positions");
+//    m.def("get_rigidGlobalPositions", &pyflex_get_rigidGlobalPositions, "Get rigid global positions");
+//    m.def("get_rigidRotations", &pyflex_get_rigidRotations, "Get rigid rotations");
+//    m.def("get_rigidTranslations", &pyflex_get_rigidTranslations, "Get rigid translations");
+//
+//    m.def("get_sceneParams", &pyflex_get_sceneParams, "Get scene parameters");
+//
+//    m.def("get_velocities", &pyflex_get_velocities, "Get particle velocities");
+//    m.def("set_velocities", &pyflex_set_velocities, "Set particle velocities");
+//    m.def("get_phases", &pyflex_get_phases, "Get particle phases");
+//
+//    m.def("get_shape_states", &pyflex_get_shape_states, "Get shape states");
+//    m.def("set_shape_states", &pyflex_set_shape_states, "Set shape states");
+//    m.def("clear_shapes", &ClearShapes, "Clear shapes");
+//
+//    m.def("get_scene_upper", &pyflex_get_sceneUpper);
+//    m.def("get_scene_lower", &pyflex_get_sceneLower);
+//}

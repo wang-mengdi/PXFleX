@@ -5,7 +5,8 @@ add_requires("pybind11 >=2.10.0")
 
 target("pyflex")
     add_rules("plugin.vsxmake.autoupdate")
-    add_rules("python.library",{soabi = true})
+    set_kind("binary")
+    --add_rules("python.library",{soabi = true})
 
     if is_plat("windows") then
         add_defines("WIN64")
