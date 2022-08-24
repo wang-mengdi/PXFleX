@@ -260,8 +260,9 @@ public:
 		mRenderingInstances.resize(0);
 
 		// build soft bodies 
-		for (int i = 0; i < int(mInstances.size()); i++)
-			CreateSoftBody(mInstances[i], mRenderingInstances.size());
+        for (int i = 0; i < int(mInstances.size()); i++) {
+          //  CreateSoftBody(mInstances[i], mRenderingInstances.size());
+        }
 
 		if (mPlinth) 
 			AddPlinth();

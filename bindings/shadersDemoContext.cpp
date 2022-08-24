@@ -20,8 +20,8 @@ DemoContext* CreateDemoContextOGL() { assert(0); return 0; };
 #endif
 
 extern DemoContext* CreateDemoContextOGL();
-extern DemoContext* CreateDemoContextD3D11();
-extern DemoContext* CreateDemoContextD3D12();
+//extern DemoContext* CreateDemoContextD3D11();
+//extern DemoContext* CreateDemoContextD3D12();
 
 DemoContext* s_context = NULL;
 
@@ -32,8 +32,8 @@ void CreateDemoContext(int type)
 	switch (type)
 	{
 	case 0: context = CreateDemoContextOGL(); break;
-	case 1: context = CreateDemoContextD3D11(); break;
-	case 2: context = CreateDemoContextD3D12(); break;
+	//case 1: context = CreateDemoContextD3D11(); break;
+	//case 2: context = CreateDemoContextD3D12(); break;
 	default: assert(0);
 	}
 #endif

@@ -20,3 +20,4 @@ build
 bin/.build_cache
 bin/.deps
 bin/.objs
+bin/windows/

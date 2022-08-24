@@ -3030,7 +3030,9 @@ py::array_t<float> pyflex_get_rigidGlobalPositions() {
 
     int count = 0;
     int numRigids = g_buffers->rigidOffsets.size() - 1;
-    float n_clusters[g_buffers->positions.size()] = {0};
+    //float n_clusters[g_buffers->positions.size()] = {0};
+    std::vector<float> n_clusters(g_buffers->positions.size());
+    std::fill(n_clusters.begin(), n_clusters.end(), 0);
 
     for (int i = 0; i < numRigids; i++) {
         const int st = g_buffers->rigidOffsets[i];

@@ -26,6 +26,7 @@
 // Copyright (c) 2013-2017 NVIDIA Corporation. All rights reserved.
 
 #pragma once
+#include "pybind11/numpy.h"
 
 // disable some warnings
 #if _WIN32
