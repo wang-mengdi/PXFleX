@@ -3,7 +3,7 @@ import sys
 import platform
 
 if __name__=='__main__':
-    proj_name="flex-binding"
+    proj_name="pyflex"
     if len(sys.argv)==2:
         proj_name=sys.argv[1]
     bin_dir=os.path.join('..','bin')
