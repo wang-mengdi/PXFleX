@@ -13,3 +13,7 @@ bindings/examples/tmp
 bindings/examples/*.avi
 bindings/examples/*/
 bindings/examples/*.gif
+
+bin/.vs/
+bindings/.xmake
+build
