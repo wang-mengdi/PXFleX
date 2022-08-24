@@ -10,8 +10,8 @@ def rand_float(lo, hi):
 
 time_step = 150
 des_dir = 'test_BoxBath'
-os.system('mkdir -p ' + des_dir)
-
+#os.system('mkdir -p ' + des_dir)
+#os.mkdir(des_dir)
 
 pyflex.init()
 

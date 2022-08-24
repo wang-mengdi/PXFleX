@@ -3447,6 +3447,16 @@ void pyflex_render(int capture, char *path) {
 }
 
 
+//int add(int i, int j) {
+//    return i + j;
+//}
+//
+//PYBIND11_MODULE(pyflex, m) {
+//    m.doc() = "pybind11 example plugin"; // optional module docstring
+//
+//    m.def("add", &add, "A function which adds two numbers");
+//}
+
 PYBIND11_MODULE(pyflex, m) {
     m.def("main", &main);
 

@@ -26,6 +26,7 @@ target("pyflex")
     add_includedirs("../core",{public=true})
     add_headerfiles("(../core/*.h)")
 
+    --add_files("pyflex.cpp")
     add_files("*.cpp","*.cu","*.cxx","*.cc")
     add_files("../core/*.cpp")
     add_files("opengl/*.cpp")
